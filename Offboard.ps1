@@ -20,14 +20,12 @@ foreach($col in $Sheet) {
 
         if($EndDate -ge $Tresh) {
           try {
-
            Set-Mailbox $Account -CustomAttribute7 $EndDate
            Write-Host "Updated for $Account"
 
            }
 
            catch {
-
             Write-Host "Error for $Account : $_"
 
            }
@@ -35,14 +33,12 @@ foreach($col in $Sheet) {
 
         else {
             try {
-
              Remove-AzureADUser -ObjectId $Account
              Write-Host "Deleted Azure AD User: $Account"
 
             }
 
             catch {
-
              Write-Host "Error deleting user $Account : $_"
 
             }
